@@ -1,0 +1,1 @@
+Plano, casos de testes / tdd..
