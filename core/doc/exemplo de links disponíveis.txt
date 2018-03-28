@@ -1,0 +1,9 @@
+http://localhost:56799/api/gdws/tmethods/all/
+
+{"class": "users","method": "insert","use_username": "teste","use_password": "teste","use_admin": 2}
+
+{"class": "users","method": "login","use_username": "luis","use_password": "luis"}
+
+{"class": "users","method": "login","use_username": "rafael","use_password": "rafael"}
+
+{"class": "users","method": "login","use_username": "jonathan","use_password": "jonathan"}
