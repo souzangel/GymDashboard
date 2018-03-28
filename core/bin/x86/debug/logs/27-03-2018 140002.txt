@@ -1,0 +1,1 @@
+"{\"class\": \"users\",\"method\": \"insert\",\"use_username\": \"teste\",\"use_password\": \"teste\",\"use_admin\": 2}"

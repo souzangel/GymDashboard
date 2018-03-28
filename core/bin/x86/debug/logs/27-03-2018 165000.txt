@@ -1,0 +1,1 @@
+{"class": "users","method": "insert","use_username": "jonathan","use_password": "jonathan","use_admin": 3}
