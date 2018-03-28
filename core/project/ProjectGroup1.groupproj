@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{582FBDDC-2306-4BE3-8529-76D620BAF1A7}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="package\GDWSPackage.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="server\GDWS.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="GDWSPackage">
+        <MSBuild Projects="package\GDWSPackage.dproj"/>
+    </Target>
+    <Target Name="GDWSPackage:Clean">
+        <MSBuild Projects="package\GDWSPackage.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GDWSPackage:Make">
+        <MSBuild Projects="package\GDWSPackage.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GDWS">
+        <MSBuild Projects="server\GDWS.dproj"/>
+    </Target>
+    <Target Name="GDWS:Clean">
+        <MSBuild Projects="server\GDWS.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GDWS:Make">
+        <MSBuild Projects="server\GDWS.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="GDWSPackage;GDWS"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="GDWSPackage:Clean;GDWS:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="GDWSPackage:Make;GDWS:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
