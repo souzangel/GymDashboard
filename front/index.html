@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<script src="js/main.js"></script>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<body ng-app="myApp" ng-controller="myCtrl">
+        <div class="jumbotron">
+            <div class="container">
+            <span class="glyphicon glyphicon-user"></span>
+            <h2>Gym</h2>
+            <div class="box">
+                <input ng-model="user.username" type="text" placeholder="username">
+                <input ng-model="user.password" type="password" placeholder="password">
+                <button ng-click="submitLogin()" class="btn btn-default full-width"><span class="glyphicon glyphicon-ok"></span></button>
+            </div>
+            </div>
+        </div>
+</body>
+</html>
