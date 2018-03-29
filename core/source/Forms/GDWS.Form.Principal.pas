@@ -3,9 +3,7 @@ unit GDWS.Form.Principal;
 interface
 
 uses
-  Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
-  Vcl.AppEvnts, Vcl.StdCtrls, IdHTTPWebBrokerBridge, Web.HTTPApp;
+  Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.AppEvnts, Vcl.StdCtrls, IdHTTPWebBrokerBridge, Web.HTTPApp;
 
 type
   TGDWSFormPrincipal = class(TForm)
@@ -15,6 +13,8 @@ type
     Label1: TLabel;
     ApplicationEvents1: TApplicationEvents;
     ButtonOpenBrowser: TButton;
+    lbl1: TLabel;
+    edtServerTransportPort: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure ApplicationEvents1Idle(Sender: TObject; var Done: Boolean);
     procedure ButtonStartClick(Sender: TObject);
@@ -51,9 +51,7 @@ var
 begin
   StartServer;
   LURL := Format('http://localhost:%s', [EditPort.Text]);
-  ShellExecute(0,
-        nil,
-        PChar(LURL), nil, nil, SW_SHOWNOACTIVATE);
+  ShellExecute(0, nil, PChar(LURL), nil, nil, SW_SHOWNOACTIVATE);
 end;
 
 procedure TGDWSFormPrincipal.ButtonStartClick(Sender: TObject);
@@ -72,6 +70,12 @@ begin
   TerminateThreads;
   FServer.Active := False;
   FServer.Bindings.Clear;
+
+  if DSServer.Started then
+  begin
+    DSServer.Stop;
+    edtServerTransportPort.Enabled := True;
+  end;
 end;
 
 procedure TGDWSFormPrincipal.FormCreate(Sender: TObject);
@@ -81,6 +85,13 @@ end;
 
 procedure TGDWSFormPrincipal.StartServer;
 begin
+  if not DSServer.Started then
+  begin
+    DSTCPServerTransport.Port := StrToInt(edtServerTransportPort.Text);
+    DSServer.Start;
+    edtServerTransportPort.Enabled := False;
+  end;
+
   if not FServer.Active then
   begin
     FServer.Bindings.Clear;
@@ -90,3 +101,5 @@ begin
 end;
 
 end.
+
+

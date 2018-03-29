@@ -13,13 +13,13 @@ type
   public
     { public declarations }
     class function getListaServerMethods: TArray<TPersistentClass>;
-    class function getListaMethods: TArray<TPersistentClass>; static;
+    class function getListaMethods: TArray<TObject>; static;
 
   end;
 
 implementation
 
-uses GDWS.DM.SM.Pessoas, GDWS.DM.SM.Usuarios, GDWS.DM.SM.Methods, GDWS.Methodos.Usuarios;
+uses GDWS.DM.SM.Pessoas, GDWS.DM.SM.Usuarios, GDWS.DM.SM.Methods, GDWS.Metodos.Usuarios;
 
 { TGDWSListaClasses }
 
@@ -30,11 +30,11 @@ begin
   Result := TArray<TPersistentClass>.Create(TMethods);
 end;
 
-class function TGDWSListaClasses.getListaMethods: TArray<TPersistentClass>;
+class function TGDWSListaClasses.getListaMethods: TArray<TObject>;
 begin
   {* Nesta lista deve ser adicionado todas as classes de métodos existentes no projeto *}
 
-  Result := TArray<TPersistentClass>.Create(TGDWSMethodosUsuarios);
+  Result := TArray<TObject>.Create(TGDWSMetodosUsuarios.Create);
 end;
 
 end.

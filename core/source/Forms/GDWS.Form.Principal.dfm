@@ -17,9 +17,16 @@ object GDWSFormPrincipal: TGDWSFormPrincipal
   object Label1: TLabel
     Left = 24
     Top = 48
-    Width = 20
+    Width = 55
     Height = 13
-    Caption = 'Port'
+    Caption = 'Server Port'
+  end
+  object lbl1: TLabel
+    Left = 160
+    Top = 48
+    Width = 105
+    Height = 13
+    Caption = 'Server Transport Port'
   end
   object ButtonStart: TButton
     Left = 24
@@ -55,6 +62,14 @@ object GDWSFormPrincipal: TGDWSFormPrincipal
     Caption = 'Open Browser'
     TabOrder = 3
     OnClick = ButtonOpenBrowserClick
+  end
+  object edtServerTransportPort: TEdit
+    Left = 160
+    Top = 67
+    Width = 121
+    Height = 21
+    TabOrder = 4
+    Text = '211'
   end
   object ApplicationEvents1: TApplicationEvents
     OnIdle = ApplicationEvents1Idle

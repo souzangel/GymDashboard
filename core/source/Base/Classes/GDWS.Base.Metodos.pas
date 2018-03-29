@@ -25,6 +25,8 @@ type
     property className: string read FclassName write SetclassName;
     property Data: TJSONObject read FData write SetData;
     function ExecuteMethod(pObj: TObject; pMethod: string; pData: TJSONObject): TJSonValue;
+
+
   end;
 
 type

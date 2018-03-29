@@ -21,24 +21,30 @@ type
   end;
 
 function DSServer: TDSServer;
-
+function DSTCPServerTransport: TDSTCPServerTransport;
 function DSAuthenticationManager: TDSAuthenticationManager;
 
 implementation
 
 uses
-  Winapi.Windows, GDWS.Seguranca, GDWS.Utils, GDWS.DS.ServerClass, GDWS.Lista.Classes;
+  Winapi.Windows, GDWS.Seguranca, GDWS.Utils, GDWS.DS.ServerClass, GDWS.Lista.Classes, GDWS.Form.Principal;
 
 {$R *.dfm}
 
 var
   FModule: TComponent;
   FDSServer: TDSServer;
+  FDSTCPServerTransp: TDSTCPServerTransport;
   FDSAuthenticationManager: TDSAuthenticationManager;
 
 function DSServer: TDSServer;
 begin
   Result := FDSServer;
+end;
+
+function DSTCPServerTransport: TDSTCPServerTransport;
+begin
+  Result := FDSTCPServerTransp;
 end;
 
 function DSAuthenticationManager: TDSAuthenticationManager;
@@ -54,6 +60,7 @@ begin
   inherited;
   FDSServer := DSServer;
   FDSAuthenticationManager := DSAuthenticationManager;
+  FDSTCPServerTransp := DSTCPServerTransp;
 
   lListaSM := TGDWSListaClasses.getListaServerMethods;
   try
@@ -61,8 +68,6 @@ begin
     begin
       TGDWSDSServerClass.Create(Self, DSServer, lSM);
     end;
-
-    DSServer.Start;
   finally
     lListaSM := nil;
   end;

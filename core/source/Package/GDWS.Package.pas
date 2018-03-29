@@ -10,7 +10,7 @@ uses
   GDWS.Base.Controle, GDWS.Base.Persistencia,
 
   {* DataModules Base *}
-  GDWS.Base.DM,
+  GDWS.Base.DM, GDWS.Base.Metodos,
 
   {* Controles *}
   GDWS.Pessoas, GDWS.Usuarios,
@@ -22,7 +22,10 @@ uses
   GDWS.DM.Connection,
 
   {* DataModules Server Methods *}
-  GDWS.DM.SM.Pessoas, GDWS.DM.SM.Usuarios
+  GDWS.DM.SM.Methods,
+
+  {* DataModules Methods *}
+  GDWS.Metodos.Usuarios
   ;
 
 implementation

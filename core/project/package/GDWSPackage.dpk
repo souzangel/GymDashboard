@@ -30,6 +30,29 @@ package GDWSPackage;
 {$RUNONLY}
 {$IMPLICITBUILD ON}
 
+requires
+  rtl,
+  vcl,
+  dbrtl,
+  DbxCommonDriver,
+  DataSnapCommon,
+  DbxClientDriver,
+  CustomIPTransport,
+  dsnap,
+  RESTComponents,
+  vclFireDAC,
+  FireDAC,
+  FireDACCommonDriver,
+  FireDACCommon,
+  FireDACIBDriver,
+  FireDACMySQLDriver,
+  DataSnapServer,
+  DataSnapServerMidas,
+  Jcl,
+  JvCore,
+  JvSystem,
+  JvDB;
+
 contains
   GDWS.Package in '..\..\source\Package\GDWS.Package.pas';
 

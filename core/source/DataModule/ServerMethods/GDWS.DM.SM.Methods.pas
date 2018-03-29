@@ -16,7 +16,7 @@ type
 implementation
 
 uses
-  GDWS.Usuarios, GDWS.Base.Classe, GDWS.DM.Connection, GDWS.Utils, GDWS.Lista.Classes, GDWS.Base.Metodos, GDWS.Methodos.Usuarios;
+  GDWS.Usuarios, GDWS.Base.Classe, GDWS.DM.Connection, GDWS.Utils, GDWS.Lista.Classes, GDWS.Base.Metodos;
 
 {$R *.dfm}
 
@@ -24,38 +24,35 @@ uses
 
 function TMethods.all(pData: String): TJSONValue;
 var
-  lListaSM: TArray<TPersistentClass>;
-  lSM: TPersistentClass;
-  lClass, lMethod: string;
+  lClassMethodList: TArray<TObject>;
+  lClassMethodItem: TObject;
+  lClass, lMethodName: string;
   lClassMethods: TGDWSBaseMetodos;
-
 
   lJsonValue: TJSONValue;
   lJsonObject: TJSONObject;
   lJsonPair: TJsonPair;
-
 begin
   gerarLog(pData);
 
   lJsonValue := TJSONObject.ParseJSONValue(pData);
   lJsonObject := lJsonValue as TJSONObject;
 
-  lListaSM := TGDWSListaClasses.getListaMethods;
+  lClassMethodList := TGDWSListaClasses.getListaMethods;
 
   lJsonPair  := lJsonObject.Get('class');
   lClass := lJsonPair.JsonValue.Value;
 
   lJsonPair  := lJsonObject.Get('method');
-  lMethod := lJsonPair.JsonValue.Value;
+  lMethodName := lJsonPair.JsonValue.Value;
 
-  for lSM in lListaSM do
+  for lClassMethodItem in lClassMethodList do
   begin
-    if lSM = TGDWSMethodosUsuarios then
-      lClassMethods := TGDWSMethodosUsuarios.Create;
+    lClassMethods := TGDWSBaseMetodos(lClassMethodItem);
 
     if lClass = lClassMethods.className then
     begin
-      Result := lClassMethods.ExecuteMethod(lClassMethods, lMethod, lJsonObject);
+      Result := lClassMethods.ExecuteMethod(lClassMethods, lMethodName, lJsonObject);
     end;
 
     lClassMethods.Free;
