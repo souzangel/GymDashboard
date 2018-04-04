@@ -14,7 +14,7 @@ A seguir segue a lista de ferramentas e extensões que serão utilizadas para o 
 
 * .pas (Arquivos de código fonte)
 * .dfm (Arquivos de formulários)
-*.dcu (Arquivos de código fonte compilados)
+* .dcu (Arquivos de código fonte compilados)
 * .dpr, .dproj (Arquivos de projeto)
 * .exe (Arquivo executável do servidor)
 * .dof (Arquivos de opções de projeto)
