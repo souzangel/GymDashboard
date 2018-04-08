@@ -1,1 +1,38 @@
-backend.
+backend.USERNAME: GDWS
+PASSWORD: GDWS
+
+http://ec2-54-94-174-189.sa-east-1.compute.amazonaws.com:56799/api/gdws/tmethods/all/
+
+{"class": "users","method": "insert","use_username": "teste","use_password": "teste","use_admin": 2}
+{"class": "users","method": "login","use_username": "luis","use_password": "luis"}
+{"class": "users","method": "login","use_username": "rafael","use_password": "rafael"}
+{"class": "users","method": "login","use_username": "jonathan","use_password": "jonathan"}
+
+
+
+{"class": "plano","method": "insert","pla_tipo": "plano 1"}
+{"class": "plano","method": "update","pla_id": 1,"pla_tipo": "plano 1"}
+{"class": "plano","method": "delete","pla_id": 1}
+{"class": "plano","method": "lista"}
+
+{"class": "atividade","method": "insert","ati_tipo": "atividade 1"}
+{"class": "atividade","method": "update","ati_id": 1,"ati_tipo": "atividade 1"}
+{"class": "atividade","method": "delete","ati_id": 1}
+{"class": "atividade","method": "lista"}
+
+{"class": "cliente","method": "insert","cli_nome": "joãozinho","cli_cpf": "00011122233"}
+{"class": "cliente","method": "update","cli_id": 1,"cli_nome": "joãozinho1","cli_cpf": "00011122233"}
+{"class": "cliente","method": "delete","cli_id": 1}
+{"class": "cliente","method": "lista"}
+
+
+Na pasta do executável
+
+1 - Abra o arquivo confdb.ini
+2 - Altere o path do DB direcionando para o arquivo "core\db\GYMDASHBOARD.GDB"
+
+para mim ficou assim:
+
+C:\Users\Jonathan Schmitt\Desktop\GymDashboard\trunk\core\db\GYMDASHBOARD.GDB
+
+essa pasta "trunk" está ali porque estou usando o SVN.
