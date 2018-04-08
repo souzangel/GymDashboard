@@ -57,10 +57,10 @@ end;
 
 function TGDWSUsuarios.Executar(pOperacao: TOperacao): TGDWSCustomRetorno;
 var
-  lObjPst: TUsuariosPst;
+  lObjPst: TGDWSUsuariosPersistencia;
 begin
   try
-    lObjPst := TUsuariosPst.Create;
+    lObjPst := TGDWSUsuariosPersistencia.Create;
     try
       NomeTabela := 'USERS';
       Result := lObjPst.Executar(Self, pOperacao);

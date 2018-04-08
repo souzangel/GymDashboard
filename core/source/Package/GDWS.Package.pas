@@ -13,10 +13,10 @@ uses
   GDWS.Base.DM, GDWS.Base.Metodos,
 
   {* Controles *}
-  GDWS.Pessoas, GDWS.Usuarios,
+  GDWS.Cliente, GDWS.Usuarios, GDWS.Atividade, GDWS.Plano,
 
   {* Persistencia *}
-  GDWS.Pessoas.Persistencia, GDWS.Usuarios.Persistencia,
+  GDWS.Cliente.Persistencia, GDWS.Usuarios.Persistencia, GDWS.Atividade.Persistencia, GDWS.Plano.Persistencia,
 
   {* DataModules Geral *}
   GDWS.DM.Connection,
@@ -25,7 +25,7 @@ uses
   GDWS.DM.SM.Methods,
 
   {* DataModules Methods *}
-  GDWS.Metodos.Usuarios
+  GDWS.Metodos.Usuarios, GDWS.Metodos.Cliente, GDWS.Metodos.Plano, GDWS.Metodos.Atividade
   ;
 
 implementation

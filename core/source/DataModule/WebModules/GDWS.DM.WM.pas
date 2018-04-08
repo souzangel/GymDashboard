@@ -33,7 +33,7 @@ var
 implementation
 
 uses
-  Web.WebReq, GDWS.DM.SM.Pessoas, GDWS.DM.SC;
+  Web.WebReq, GDWS.DM.SC;
 
 {$R *.dfm}
 
@@ -45,8 +45,6 @@ begin
     ReplaceText := IntToStr(Request.ServerPort)
   else if SameText(TagString, 'host') then
     ReplaceText := string(Request.Host)
-  else if SameText(TagString, 'classname') then
-    ReplaceText := GDWS.DM.SM.Pessoas.TGDWSDMSMPessoas.ClassName
   else if SameText(TagString, 'loginrequired') then
     if DSRESTWebDispatcher.AuthenticationManager <> nil then
       ReplaceText := 'true'

@@ -6,7 +6,7 @@ uses
   GDWS.Base.Persistencia, GDWS.Types, GDWS.Base.Classe, System.SysUtils, GDWS.Base.Controle;
 
 type
-  TUsuariosPst = class(TGDWSBasePersistencia)
+  TGDWSUsuariosPersistencia = class(TGDWSBasePersistencia)
   private
     procedure SQLNoPassword(out pObjeto: TGDWSBaseControle);
     { private declarations }
@@ -27,7 +27,7 @@ uses
 
 { TUsuariosPst }
 
-procedure TUsuariosPst.SQL(out pObjeto: TGDWSBaseControle);
+procedure TGDWSUsuariosPersistencia.SQL(out pObjeto: TGDWSBaseControle);
 begin
   try
     case pObjeto.TipoSQL of
@@ -42,7 +42,7 @@ begin
   end;
 end;
 
-procedure TUsuariosPst.SQLNoPassword(out pObjeto: TGDWSBaseControle);
+procedure TGDWSUsuariosPersistencia.SQLNoPassword(out pObjeto: TGDWSBaseControle);
 begin
   try
     Query.SQL.Add(' SELECT USE_ID, USE_USERNAME, USE_ADMIN FROM ' + pObjeto.Schema + TGDWSUtils.Iif(pObjeto.Schema <> '', '.', '') + pObjeto.NomeTabela + ' ');

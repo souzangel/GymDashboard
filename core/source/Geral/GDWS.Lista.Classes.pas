@@ -19,7 +19,7 @@ type
 
 implementation
 
-uses GDWS.DM.SM.Pessoas, GDWS.DM.SM.Usuarios, GDWS.DM.SM.Methods, GDWS.Metodos.Usuarios;
+uses GDWS.DM.SM.Methods, GDWS.Metodos.Usuarios, GDWS.Metodos.Plano, GDWS.Metodos.Atividade, GDWS.Metodos.Cliente;
 
 { TGDWSListaClasses }
 
@@ -34,7 +34,7 @@ class function TGDWSListaClasses.getListaMethods: TArray<TObject>;
 begin
   {* Nesta lista deve ser adicionado todas as classes de métodos existentes no projeto *}
 
-  Result := TArray<TObject>.Create(TGDWSMetodosUsuarios.Create);
+  Result := TArray<TObject>.Create(TGDWSMetodosUsuarios.Create, TGDWSMetodosCliente.Create, TGDWSMetodosAtividade.Create, TGDWSMetodosPlano.Create);
 end;
 
 end.
